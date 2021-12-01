@@ -3,10 +3,10 @@
     {
       "name": "heroku cli",
       "description": "login and run heroku commands",
-      "hostname": "localhost",
       "featured": true,
-      "port": "SSH_PORT",
       "username": "heroku",
+      "hostname": "localhost",
+      "port": "SSH_PORT",
       "labels": {
         "network": "localhost",
         "app": "heroku"
@@ -15,11 +15,11 @@
     {
       "name": "heroku logs",
       "description": "login and run heroku commands",
-      "initialCommand": "heroku logs -a jnewland-ssh",
-      "hostname": "localhost",
+      "shellCommand": "heroku logs -a jnewland-ssh",
       "featured": true,
-      "port": "SSH_PORT",
       "username": "heroku",
+      "hostname": "localhost",
+      "port": "SSH_PORT",
       "labels": {
         "network": "localhost",
         "app": "heroku"
