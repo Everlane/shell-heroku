@@ -1,0 +1,29 @@
+{
+  "prompts": [
+    {
+      "name": "heroku cli",
+      "description": "login and run heroku commands",
+      "hostname": "localhost",
+      "featured": true,
+      "port": "2224",
+      "username": "heroku",
+      "labels": {
+        "network": "localhost",
+        "app": "heroku"
+      }
+    },
+    {
+      "name": "heroku logs",
+      "description": "login and run heroku commands",
+      "initialCommand": "heroku logs -a jnewland-ssh",
+      "hostname": "localhost",
+      "featured": true,
+      "port": "2224",
+      "username": "heroku",
+      "labels": {
+        "network": "localhost",
+        "app": "heroku"
+      }
+    }
+  ]
+}
