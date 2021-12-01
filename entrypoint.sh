@@ -18,7 +18,7 @@ PORT=$SSH_PORT /bin/heroku-ssh heroku http://localhost:$PORT bash -i &
 echo "updating port in prompts.json"
 jq --arg placeholder SSH_PORT --arg port $SSH_PORT \
   '.prompts | map((select(.port == $placeholder) | .port) |= $port) | { prompts: .}' \
-    /prompts.pre.json > /tmp/prompts.json
+    /prompts.json > /tmp/prompts.json
 export CASED_SHELL_HOST_FILE=/tmp/prompts.json
 
 echo "starting cased shell server"
