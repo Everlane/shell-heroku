@@ -1,4 +1,4 @@
-FROM ghcr.io/cased/shell:unstable
+FROM ghcr.io/cased/shell:latest
 COPY --from=ghcr.io/cased/ssh-oauth-handlers:latest /bin/app /bin/heroku-ssh
 COPY --from=ghcr.io/cased/jump:latest /bin/app /bin/jump
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
