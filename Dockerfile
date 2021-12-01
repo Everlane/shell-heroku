@@ -1,4 +1,4 @@
-FROM ghcr.io/cased/shell:pr-1523
+FROM ghcr.io/cased/shell:unstable
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
 CMD []
 RUN curl https://cli-assets.heroku.com/install.sh | sh
