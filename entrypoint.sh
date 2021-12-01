@@ -16,7 +16,7 @@ echo "starting ssh server"
 PORT=$SSH_PORT /bin/heroku-ssh heroku https://$CASED_SHELL_HOSTNAME bash -i &
 
 echo "parsing jump config"
-ONCE=true /bin/jump /jump.yaml /tmp/jump.json
+ONCE=true /bin/jump /jump.yml /tmp/jump.json
 jq --arg placeholder SSH_PORT --arg port $SSH_PORT \
   '.prompts | map((select(.port == $placeholder) | .port) |= $port) | { prompts: .}' \
     /tmp/jump.json > /tmp/prompts.json
