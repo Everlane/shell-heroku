@@ -1,3 +1,4 @@
+# See https://github.com/cased/jump#writing-queries for docs and examples
 queries:
   - provider: static
     prompt:
