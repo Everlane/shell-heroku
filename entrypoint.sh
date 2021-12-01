@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$CASED_SHELL_SECRET" ]; then
+  echo "CASED_SHELL_SECRET required"
+  exit 1
+fi
+
 # Configure Cased Shell for Heroku
 export CASED_SHELL_PORT=$PORT
 export CASED_SHELL_TLS=off
