@@ -2,7 +2,7 @@
   "prompts": [
     {
       "name": "heroku cli",
-      "description": "login and run heroku commands",
+      "description": "an interactive shell for heroku commands",
       "featured": true,
       "username": "heroku",
       "hostname": "localhost",
@@ -13,9 +13,9 @@
       }
     },
     {
-      "name": "heroku logs",
-      "description": "login and run heroku commands",
-      "shellCommand": "heroku logs -a jnewland-ssh",
+      "name": "jnewland-ssh logs",
+      "description": "a stream of logs",
+      "shellCommand": "heroku logs -a jnewland-ssh --tail",
       "featured": true,
       "username": "heroku",
       "hostname": "localhost",
