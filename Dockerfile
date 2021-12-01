@@ -4,3 +4,4 @@ CMD []
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 ADD entrypoint.sh prompts.json /
 COPY --from=ghcr.io/cased/ssh-oauth-handlers:latest /bin/app /bin/heroku-ssh
+COPY --from=ghcr.io/cased/jump:latest /bin/app /bin/jump

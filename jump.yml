@@ -1,0 +1,27 @@
+queries:
+  - provider: static
+    prompt:
+      name: heroku cli
+      description: an interactive shell for heroku commands
+      featured: true
+      username: heroku
+      hostname: localhost
+      port: SSH_PORT
+      labels:
+        network: localhost
+        app: heroku
+  - provider: static
+    prompt:
+      name: jnewland-ssh logs
+      description: a stream of logs
+      shellCommand: heroku logs -a jnewland-ssh --tail
+      featured: true
+      username: heroku
+      hostname: localhost
+      port: SSH_PORT
+      labels:
+        network: localhost
+        app: heroku
+
+
+

@@ -15,10 +15,11 @@ export CASED_SHELL_OAUTH_UPSTREAM=localhost:$SSH_PORT
 echo "starting ssh server"
 PORT=$SSH_PORT /bin/heroku-ssh heroku https://$CASED_SHELL_HOSTNAME bash -i &
 
-echo "updating port in prompts.json"
+echo "parsing jump config"
+ONCE=true /bin/jump /jump.yaml /tmp/jump.json
 jq --arg placeholder SSH_PORT --arg port $SSH_PORT \
   '.prompts | map((select(.port == $placeholder) | .port) |= $port) | { prompts: .}' \
-    /prompts.json > /tmp/prompts.json
+    /tmp/jump.json > /tmp/prompts.json
 export CASED_SHELL_HOST_FILE=/tmp/prompts.json
 
 echo "starting cased shell server"
