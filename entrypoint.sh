@@ -16,10 +16,10 @@ echo "starting ssh server"
 PORT=$SSH_PORT /bin/heroku-ssh heroku http://localhost:$PORT bash -i &
 
 echo "updating port in prompts.json"
-mv prompts.json prompts.pre.json
 jq --arg placeholder SSH_PORT --arg port $SSH_PORT \
   '.prompts | map((select(.port == $placeholder) | .port) |= $port) | { prompts: .}' \
-    prompts.pre.json > prompts.json
+    /prompts.pre.json > /tmp/prompts.json
+export CASED_SHELL_HOST_FILE=/tmp/prompts.json
 
 echo "starting cased shell server"
 python -u run.py --logging=$CASED_SHELL_LOG_LEVEL &
