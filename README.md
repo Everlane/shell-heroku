@@ -2,6 +2,8 @@
 
 This repo contains a the configuration of a Heroku application that combines of [Cased Shell](https://cased.com), [a SSH daemon that authenticates against Heroku](https://github.com/cased/ssh-oauth-handlers), and the Heroku CLI. The result allows your team to use the Heroku CLI in a secure, auditable fashion.
 
+<img width="1050" alt="image" src="https://user-images.githubusercontent.com/47/144297536-638f3cd3-acff-4d86-9afb-1fa62d0bb73e.png">
+
 ## Deploying
 
 1. Create a Heroku app. Its name will be referenced as `<app_name>` throughout this tutorial.
