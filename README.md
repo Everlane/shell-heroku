@@ -9,7 +9,7 @@ This repo contains a the configuration of a Heroku application that combines of 
 1. Create a Heroku app. Its name will be referenced as `<app_name>` throughout this tutorial.
 2. Add a `CASED_SHELL_SECRET` Config Var to your Heroku app using the value from the Cased Shell Settings tab.
 3. Create a Cased Shell instance named `<app_name>.herokuapp.com`. On the Settings tab, enable Certificate Authentication.
-4. Clone this repo.
+4. Fork and clone this repo.
 5. Run the following commands to deploy Cased Shell to Heroku:
 
 ```
