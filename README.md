@@ -25,3 +25,7 @@ git push heroku main
 ```
 
 Open https://<app_name>.herokuapp.com in your browser and login.
+
+## Configuring your Shell
+
+To change the prompts displayed by your shell, edit `jump.yaml`, commit, and push to Heroku. See https://github.com/cased/jump#writing-queries for documentation covering the format of `jump.yaml`.
