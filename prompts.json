@@ -5,7 +5,7 @@
       "description": "login and run heroku commands",
       "hostname": "localhost",
       "featured": true,
-      "port": "2224",
+      "port": "SSH_PORT",
       "username": "heroku",
       "labels": {
         "network": "localhost",
@@ -18,7 +18,7 @@
       "initialCommand": "heroku logs -a jnewland-ssh",
       "hostname": "localhost",
       "featured": true,
-      "port": "2224",
+      "port": "SSH_PORT",
       "username": "heroku",
       "labels": {
         "network": "localhost",
