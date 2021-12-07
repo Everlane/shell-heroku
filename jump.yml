@@ -9,8 +9,8 @@ queries:
       hostname: localhost
       port: SSH_PORT
       labels:
-        network: localhost
-        app: heroku
+        app: bash
+        type: interactive
   - provider: static
     prompt:
       name: jnewland-ssh logs
@@ -20,6 +20,8 @@ queries:
       username: heroku
       hostname: localhost
       port: SSH_PORT
+      # retain window on close
+      closeTerminalOnExit: false
       labels:
-        network: localhost
-        app: heroku
+        app: logs
+        type: stream
