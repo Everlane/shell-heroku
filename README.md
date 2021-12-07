@@ -19,6 +19,7 @@ heroku labs:enable runtime-dyno-metadata
 heroku config:add CASED_SHELL_HOSTNAME=<app_name>.herokuapp.com
 heroku config:add CASED_SHELL_SECRET=<obtain from your Shell Instance's Settings tab on https://app.cased.com/>
 
+# Create a new Heroku OAuth client. Used to authenticate and authorize connections to the Heroku CLI.
 heroku plugins:install heroku-cli-oauth
 heroku clients:create "<app_name>.herokuapp.com" https://<app_name>.herokuapp.com/oauth/auth/callback
 heroku config:add HEROKU_OAUTH_ID=<set to `id` from command output above>
