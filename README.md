@@ -6,31 +6,33 @@ This repo contains the configuration of a Heroku application that combines [Case
 
 ## Deploying
 
-1. Create a [new Heroku app](https://dashboard.heroku.com/new-app). Its name will be referenced as `<app_name>` throughout this tutorial.
+1. Create a [new Heroku app](https://dashboard.heroku.com/new-app).
 2. Create a [new Cased Shell instance](https://app.cased.com/shells/new) with a matching hostname. On the Settings tab, enable Certificate Authentication.
 3. Fork and clone this repo.
 4. Run the following commands to deploy Cased Shell to Heroku:
 
 ```
-heroku git:remote -a <app_name>
+export APP_NAME=your-heroku-app-name
+
+heroku git:remote -a $APP_NAME
 heroku stack:set container
 heroku labs:enable runtime-dyno-metadata
 
-heroku config:add CASED_SHELL_HOSTNAME=<app_name>.herokuapp.com
+heroku config:add CASED_SHELL_HOSTNAME=$APP_NAME.herokuapp.com
 heroku config:add CASED_SHELL_SECRET=<obtain from your Shell Instance's Settings tab on https://app.cased.com/>
 
 # Create a new Heroku OAuth client. Used to authenticate and authorize connections to the Heroku CLI.
 heroku plugins:install heroku-cli-oauth
-heroku clients:create "<app_name>.herokuapp.com" https://<app_name>.herokuapp.com/oauth/auth/callback
-heroku config:add HEROKU_OAUTH_ID=<set to `id` from command output above>
-heroku config:add HEROKU_OAUTH_SECRET=<set to `secret` from command output above>
+heroku clients:create "$APP_NAME.herokuapp.com" https://$APP_NAME.herokuapp.com/oauth/auth/callback
+heroku config:add HEROKU_OAUTH_ID=<set to `HEROKU_OAUTH_ID` from command output above>
+heroku config:add HEROKU_OAUTH_SECRET=<set to `HEROKU_OAUTH_SECRET` from command output above>
 heroku config:add COOKIE_SECRET=`openssl rand -hex 32`
 heroku config:add COOKIE_ENCRYPT=`openssl rand -hex 16`
 
 git push heroku main
 ```
 
-Open https://<app_name>.herokuapp.com in your browser and login.
+Open https://$APP_NAME.herokuapp.com in your browser and login.
 
 ## Configuring your Shell
 
