@@ -1,4 +1,5 @@
 # See https://github.com/cased/jump#writing-queries for docs and examples
+# $HEROKU_APP_NAME and $HEROKU_SSH_PORT are replaced at container boot
 queries:
   - provider: static
     prompt:
@@ -7,19 +8,19 @@ queries:
       featured: true
       username: heroku
       hostname: localhost
-      port: SSH_PORT
+      port: $HEROKU_SSH_PORT
       labels:
         app: bash
         type: interactive
   - provider: static
     prompt:
-      name: jnewland-ssh logs
+      name: $HEROKU_APP_NAME logs
       description: a stream of logs
-      shellCommand: heroku logs -a jnewland-ssh --tail
+      shellCommand: heroku logs -a $HEROKU_APP_NAME --tail
       featured: true
       username: heroku
       hostname: localhost
-      port: SSH_PORT
+      port: $HEROKU_SSH_PORT
       # retain window on close
       closeTerminalOnExit: false
       labels:

@@ -9,15 +9,16 @@ fi
 export CASED_SHELL_PORT=$PORT
 export CASED_SHELL_TLS=off
 : ${CASED_SHELL_LOG_LEVEL:="error"}
-let SSH_PORT=PORT+1 ;
-export CASED_SHELL_OAUTH_UPSTREAM=localhost:$SSH_PORT
+let HEROKU_SSH_PORT=PORT+1 ;
+export CASED_SHELL_OAUTH_UPSTREAM=localhost:$HEROKU_SSH_PORT
 
 echo "starting ssh server"
-PORT=$SSH_PORT /bin/heroku-ssh heroku https://$CASED_SHELL_HOSTNAME bash -i &
+PORT=$HEROKU_SSH_PORT /bin/heroku-ssh heroku https://$CASED_SHELL_HOSTNAME bash -i &
 
 echo "parsing jump config"
 ONCE=true /bin/jump /jump.yml /tmp/jump.json
-jq --arg placeholder SSH_PORT --arg port $SSH_PORT \
+sed -i "s/\$HEROKU_APP_NAME/$HEROKU_APP_NAME/g" /tmp/jump.json
+jq --arg placeholder \$HEROKU_SSH_PORT --arg port $HEROKU_SSH_PORT \
   '.prompts | map((select(.port == $placeholder) | .port) |= $port) | { prompts: .}' \
     /tmp/jump.json > /tmp/prompts.json
 export CASED_SHELL_HOST_FILE=/tmp/prompts.json
