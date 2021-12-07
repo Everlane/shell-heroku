@@ -6,10 +6,10 @@ This repo contains the configuration of a Heroku application that combines [Case
 
 ## Deploying
 
-1. Create a Heroku app. Its name will be referenced as `<app_name>` throughout this tutorial.
-2. Create a [Cased Shell instance](https://app.cased.com/shells/new) with a matching hostname. On the Settings tab, enable Certificate Authentication.
+1. Create a [new Heroku app](https://dashboard.heroku.com/new-app). Its name will be referenced as `<app_name>` throughout this tutorial.
+2. Create a [new Cased Shell instance](https://app.cased.com/shells/new) with a matching hostname. On the Settings tab, enable Certificate Authentication.
 3. Fork and clone this repo.
-5. Run the following commands to deploy Cased Shell to Heroku:
+4. Run the following commands to deploy Cased Shell to Heroku:
 
 ```
 heroku git:remote -a <app_name>
