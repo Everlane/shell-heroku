@@ -1,5 +1,5 @@
 FROM ghcr.io/cased/shell:pr-31
-COPY --from=ghcr.io/cased/ssh-oauth-handlers:pr-8 /bin/app /bin/heroku-ssh
+COPY --from=ghcr.io/cased/ssh-oauth-handlers:latest /bin/app /bin/heroku-ssh
 COPY --from=ghcr.io/cased/jump:latest /bin/app /bin/jump
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
 CMD []
