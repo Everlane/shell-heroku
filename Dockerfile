@@ -1,5 +1,4 @@
-# TODO: update this once https://github.com/cased/shell/pull/31 is in a release
-FROM ghcr.io/cased/shell:unstable
+FROM ghcr.io/cased/shell:pr-31
 COPY --from=ghcr.io/cased/ssh-oauth-handlers:latest /bin/app /bin/heroku-ssh
 COPY --from=ghcr.io/cased/jump:latest /bin/app /bin/jump
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
