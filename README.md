@@ -34,9 +34,9 @@ git push heroku main
 
 Open https://$APP_NAME.herokuapp.com in your browser and login.
 
-## Configuring S3 for session replay storage
+## Configuring S3 for persistent storage
 
-To enable persistent storage of session recordings, create a new S3 bucket and configure it as the session replay storage using [these environment variables](https://docs.cased.com/cased-documentation/web-shell/persistent-pluggable-storage#custom-deployments). Example:
+To enable persistent storage of session activity, create a new S3 bucket and use [these environment variables](https://docs.cased.com/cased-documentation/web-shell/persistent-pluggable-storage#custom-deployments) to configure the app to use it. Example:
 
 ```
 heroku config:set STORAGE_BACKEND=s3 STORAGE_S3_BUCKET=s3-cased-shell-your-company STORAGE_S3_ACCESS_KEY_ID=SECRET STORAGE_S3_SECRET_ACCESS_KEY="secret" STORAGE_S3_REGION=us-west-2
