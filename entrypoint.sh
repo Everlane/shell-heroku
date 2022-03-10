@@ -8,6 +8,9 @@ fi
 # Configure Cased Shell for Heroku
 export CASED_SHELL_PORT=$PORT
 export CASED_SHELL_TLS=off
+export CASED_SHELL_PLUGINS="approval"
+export CASED_SHELL_APPROVALS="does-not-exist"
+
 : ${CASED_SHELL_LOG_LEVEL:="error"}
 let HEROKU_SSH_PORT=PORT+1 ;
 export CASED_SHELL_OAUTH_UPSTREAM=localhost:$HEROKU_SSH_PORT
