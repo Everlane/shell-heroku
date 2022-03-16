@@ -1,4 +1,5 @@
 # TODO release version with s3 recording support
+# cased/shell@d61b414
 FROM ghcr.io/cased/shell:pr-28
 COPY --from=ghcr.io/cased/ssh-oauth-handlers:latest /bin/app /bin/heroku-ssh
 COPY --from=ghcr.io/cased/jump:latest /bin/app /bin/jump
